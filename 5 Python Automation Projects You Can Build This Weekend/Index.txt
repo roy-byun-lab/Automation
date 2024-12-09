@@ -1,0 +1,5 @@
+1) Email Auto Cleaner
+2) Social Media Post Scheduler
+3) Automatic Data Scraper
+4) File Organizer
+5) Personal Movie Recommendation System
