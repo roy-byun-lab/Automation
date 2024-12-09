@@ -1,0 +1,11 @@
+import requests
+from bs4 import BeautifulSoup
+
+url = 'http://example.com'
+response = requests.get(url)
+soup = BeautifulSoup(response.content, 'html.parser')
+
+# Extracting specific data
+data = soup.find_all('h1')
+for item in data:
+    print(item.text)

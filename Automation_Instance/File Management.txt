@@ -1,0 +1,12 @@
+"""
+Automating file operations such as reading from and writing to files can save significant time.
+"""
+
+# Reading a file
+with open("example.txt", "r") as file:
+    content = file.read()
+    print(content)
+
+# Writing to a file
+with open("example.txt", "w") as file:
+    file.write("Hello, World!")

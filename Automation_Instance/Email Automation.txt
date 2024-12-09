@@ -1,0 +1,15 @@
+"""
+Sending automated emails can streamline communication processes within businesses.
+"""
+import smtplib
+from email.mime.text import MIMEText
+
+msg = MIMEText("This is an automated email.")
+msg['Subject'] = "Automated Email"
+msg['From'] = "your_email@example.com"
+msg['To'] = "recipient@example.com"
+
+with smtplib.SMTP('smtp.example.com', 587) as server:
+    server.starttls()
+    server.login("your_email@example.com", "your_password")
+    server.send_message(msg)
