@@ -1,0 +1,31 @@
+"""
+To read barcodes from PDF
+Scan the barcode after generating the image file
+"""
+# pip install Spire.PDF
+
+from spire.barcode import *
+from spire.barcode import License as barcodeLicense
+from spire.pdf import *
+
+# Apply license key
+# https://www.e-iceblue.com/TemLicense.html
+barcodeLicense.SetLicenseKey("license key")
+
+# Create a PdfDocument object
+doc = PdfDocument()
+
+# Load a PDF file
+doc.LoadFromFile("C:\\Users\\Administrator\\Desktop\\Barcode.pdf")
+
+# Convert the first page to image stream
+stream = doc.SaveAsImage(0, PdfImageType.Bitmap)
+
+# Save stream to a PNG image
+stream.Save("ToPNG.png")
+
+# Scan barcodes from the image
+results = BarcodeScanner.ScanFile("ToPNG.png")
+
+# Print results
+print(results)

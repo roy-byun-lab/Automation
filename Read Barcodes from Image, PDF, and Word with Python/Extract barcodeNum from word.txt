@@ -1,0 +1,32 @@
+"""
+To read barcodes from Word
+Scan the barcode after generating the image file
+"""
+# pip install Spire.Doc
+
+from spire.barcode import *
+from spire.barcode import License as barcodeLicense
+from spire.doc import *
+
+# Apply license key
+barcodeLicense.SetLicenseKey("license key")
+
+# Create a Document object
+doc = Document()
+
+# Load a sample Word document
+doc.LoadFromFile("C:\\Users\\Administrator\\Desktop\\Barcode.docx");
+
+# Convert the first page to image
+stream =  doc.SaveImageToStreams(0, ImageType.Bitmap)
+
+# Save the bitmap to a PNG file
+with open('ToImage.png','wb') as imageFile:
+
+    imageFile.write(stream.ToArray())
+
+# Scan barcode from the image
+resutls = BarcodeScanner.ScanFile("ToImage.png")
+
+# Print results
+print(resutls)

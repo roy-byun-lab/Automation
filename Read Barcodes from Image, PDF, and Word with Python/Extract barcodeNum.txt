@@ -1,0 +1,22 @@
+"""
+To read barcodes from image files, use the Spire.Barcode for Python library.
+ This library supports the detection and scanning of over 38 common barcode types
+	 including Code 39, Code 128, EAN-8, PDF417, QR Code, and Data Matrix
+"""
+# pip install Spire.Barcode
+
+from spire.barcode import *
+
+# Apply license key
+# https://www.e-iceblue.com/TemLicense.html
+License.SetLicenseKey("license key")
+
+# Scan&extract an image file that contains one barcode
+result = BarcodeScanner.ScanOneFile("C:\\Users\\Administrator\\Desktop\\MyImage\\barcode_one.jpg")
+
+# Scan&extract an image file that contain multiple barcodes
+results = BarcodeScanner.ScanFile("C:\\Users\\Administrator\\Desktop\\MyImage\\barcode_two.jpg")
+
+# Print the results
+print(result)
+print(results)
